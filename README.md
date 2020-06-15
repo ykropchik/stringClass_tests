@@ -1,0 +1,1 @@
+# stringClass_tests
