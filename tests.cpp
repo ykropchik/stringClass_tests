@@ -54,7 +54,7 @@
     
     while (flstring.Length() != 0) {
         char & charToRemove = flstring[(int)flstring.Length() - 1];
-        Replace(flstring, FLString(&charToRemove) , MyString(""));
+        Replace(flstring, MyString(&charToRemove) , MyString(""));
     }
     
     XCTAssert(flstring == MyString(""));
