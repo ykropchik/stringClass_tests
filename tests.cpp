@@ -17,92 +17,92 @@
 }
 /*============================*/
 {
-    FLString flstring;
+    MyString flstring;
     flstring = "abcdeftre";
-    findAndReplace(flstring, FLString("abc"), FLString("abcabc"));
-    XCTAssert(flstring == FLString("abcabcdeftre"));
+    Replace(flstring, MyString("abc"), MyString("abcabc"));
+    XCTAssert(flstring == MyString("abcabcdeftre"));
     
-    findAndReplace(flstring, "tre", "xxx");
+    Replace(flstring, "tre", "xxx");
     cout << flstring << endl;
     XCTAssert(flstring == "abcabcdefxxx");
 }
 /*============================*/
 {
     for (int i = 1; i < 16; i++) {
-        FLString flstring = FLString(i);
+        MyString flstring = MyString(i);
         flstring = "abcdeftre";
         
-        findAndReplace(flstring, FLString("abc"), FLString("abcabc"));
-        XCTAssert(flstring == FLString("abcabcdeftre"));
+        Replace(flstring, MyString("abc"), MyString("abcabc"));
+        XCTAssert(flstring == MyString("abcabcdeftre"));
         
-        findAndReplace(flstring, FLString("tre"), FLString("xxx"));
+        Replace(flstring, MyString("tre"), MyString("xxx"));
         cout << flstring << endl;
-        XCTAssert(flstring == FLString("abcabcdefxxx"));
+        XCTAssert(flstring == MyString("abcabcdefxxx"));
     }
 }
 /*============================*/
 {
-    FLString flstring;
+    MyString flstring;
     flstring = "abcdeftre";
-    findAndReplace(flstring, FLString("abcdeftre"), FLString(""));
-    XCTAssert(flstring == FLString(""));
+    Replace(flstring, MyString("abcdeftre"), MyString(""));
+    XCTAssert(flstring == MyString(""));
 }
 /*============================*/
 {
-    FLString flstring;
+    MyString flstring;
     flstring = "abcdeftre";
     
-    while (flstring.getLength() != 0) {
-        char & charToRemove = flstring[(int)flstring.getLength() - 1];
-        findAndReplace(flstring, FLString(&charToRemove) , FLString(""));
+    while (flstring.Length() != 0) {
+        char & charToRemove = flstring[(int)flstring.Length() - 1];
+        Replace(flstring, FLString(&charToRemove) , MyString(""));
     }
     
-    XCTAssert(flstring == FLString(""));
+    XCTAssert(flstring == MyString(""));
     
+}
+/*============================*/
+{
+    MyString flstring;
+    flstring = "abcdeftre";
+    
+    Replace(flstring, MyString("abc"), MyString("ab"));
+    XCTAssert(flstring == MyString("abdeftre"));
+    Replace(flstring, MyString("abd"), MyString("bd"));
+    XCTAssert(flstring == MyString("bdeftre"));
+    Replace(flstring, MyString("eft"), MyString("f"));
+    XCTAssert(flstring == MyString("bdfre"));
 }
 /*============================*/
 {
     FLString flstring;
     flstring = "abcdeftre";
     
-    findAndReplace(flstring, FLString("abc"), FLString("ab"));
-    XCTAssert(flstring == FLString("abdeftre"));
-    findAndReplace(flstring, FLString("abd"), FLString("bd"));
-    XCTAssert(flstring == FLString("bdeftre"));
-    findAndReplace(flstring, FLString("eft"), FLString("f"));
-    XCTAssert(flstring == FLString("bdfre"));
+    Replace(flstring, MyString("iuofhjwe89"), MyString("xxx"));
+    XCTAssert(flstring == MyString("abcdeftre"));
 }
 /*============================*/
 {
-    FLString flstring;
+    MyString flstring;
     flstring = "abcdeftre";
     
-    findAndReplace(flstring, FLString("iuofhjwe89"), FLString("xxx"));
-    XCTAssert(flstring == FLString("abcdeftre"));
-}
-/*============================*/
-{
-    FLString flstring;
-    flstring = "abcdeftre";
-    
-    findAndReplace(flstring, FLString("abcdeftre"), FLString("abcdeftreabcdeftre"));
+    Replace(flstring, MyString("abcdeftre"), MyString("abcdeftreabcdeftre"));
     cout << flstring << endl;
-    XCTAssert(flstring == FLString("abcdeftreabcdeftre"));
+    XCTAssert(flstring == MyString("abcdeftreabcdeftre"));
 }
 /*============================*/
 {
-    FLString flstring = FLString(4);
-    FLString flstring1 = FLString(7);
+    MyString flstring = MyString(4);
+    MyString flstring1 = MyString(7);
     flstring1= flstring = "";
     cout <<"0"<< flstring << endl;
     
-    findAndReplace(flstring, "abc", "abcabc");
+    Replace(flstring, "abc", "abcabc");
     cout << flstring << endl;
     
     // flstring = flstring+"___"+flstring+"------";
     cout <<"1"<< flstring << endl;
     
-    findAndReplace(flstring,"", "");
+    Replace(flstring,"", "");
     cout <<"2"<< flstring << endl;
 }
 /*============================*/
