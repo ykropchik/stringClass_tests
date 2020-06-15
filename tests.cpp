@@ -16,3 +16,11 @@
 
 }
 /*============================*/
+{
+	MyString myStr1 = "0123";
+    	MyString myStr2 = "456789";
+
+    	MyString myStr3 ="0123"+ myStr1 + myStr2+"0123";
+    	std::cout << myStr3;
+}
+/*============================*/
