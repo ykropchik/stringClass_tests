@@ -104,12 +104,23 @@
     
     Replace(flstring,"", "");
     cout <<"2"<< flstring << endl;
-}
 /*============================*/
+}
 	MyString myStr1 = "0123";
     	MyString myStr2 = "456789";
 
     	MyString myStr3 ="0123"+ myStr1 + myStr2+"0123";
     	std::cout << myStr3;
+}
+/*============================*/
+/*===Тест для строк со статическим размером кластера===*/
+}
+	MyString myStr1 (2,"123 456");
+	MyString myStr2 (1,"4576");
+	MyString myStr3(5, "987654");
+	myStr1 = myStr2 + myStr1;
+	std::cout << myStr1 << std::endl;
+	myStr1.Replace(myStr2, myStr3);
+	std::cout << myStr1;
 }
 /*============================*/
